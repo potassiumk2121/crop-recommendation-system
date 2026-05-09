@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+*.pkl
+*.pyc
+__pycache__/
+.Python
+.idea/
+.vscode/
+coverage/
+.vercel/
+# Pickled estimators (*.pkl) stay untracked; keep `models/.gitkeep` for empty dir on clone.

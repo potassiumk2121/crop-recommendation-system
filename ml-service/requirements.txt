@@ -1,0 +1,9 @@
+# Crop Recommendation ML Service — Python 3.10+ (3.12/3.13 recommended)
+flask>=3.0.3,<4
+flask-cors>=4.0.1,<5
+gunicorn>=22.0.0,<23
+numpy>=2.1.0
+pandas>=2.2.3
+scikit-learn>=1.5.2
+joblib>=1.4.2
+python-dotenv>=1.0.1,<2

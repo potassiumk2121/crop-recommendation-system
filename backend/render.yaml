@@ -1,0 +1,24 @@
+# Render blueprint — backend API (Node).
+# MongoDB Atlas: set MONGODB_URI in Render dashboard (Environment).
+# ML service URL: set ML_SERVICE_URL to your Flask service URL on Render.
+services:
+  - type: web
+    name: crop-recommendation-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CORS_ORIGIN
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: ML_SERVICE_URL
+        sync: false
