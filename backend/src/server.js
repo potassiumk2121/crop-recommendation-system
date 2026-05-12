@@ -12,7 +12,8 @@ const PORT = Number(process.env.PORT) || 4000;
 const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173')
   .split(',')
   .map((s) => s.trim());
-
+  
+console.log('Allowed Origins:', allowedOrigins);
 app.use(
   cors({
     origin: function (origin, callback) {
