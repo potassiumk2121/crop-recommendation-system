@@ -9,21 +9,20 @@ import { connectDatabase } from './config/db.js';
 const app = express();
 const PORT = Number(process.env.PORT) || 4000;
 
-const allowedOrigins = (process.env.CORS_ORIGIN || '')
-  .split(',')
+const allowedOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
   .map(origin => origin.trim())
-  .filter(Boolean);
-
-console.log('Allowed Origins:', allowedOrigins);
-
+  .filter(origin => origin.length > 0);
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log("Incoming Origin:", origin);
+      console.log("Allowed Origins:", allowedOrigins);
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        console.log('Blocked Origin:', origin);
-        callback(new Error('Not allowed by CORS'));
+        console.log("Blocked Origin:", origin);
+        callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
